@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>316 SC | Sports Cards</title>
+<meta name="description" content="316 SC sells raw sports card singles and same-set packs of 20+ cards. Browse, build an order, and send it in a couple of taps.">
+<meta property="og:title" content="316 SC | Sports Cards">
+<meta property="og:description" content="Real cards. Fair prices. Singles and same-set packs of 20+ cards.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://316sc.netlify.app/">
+<meta name="theme-color" content="#14213d">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600;700&display=swap">
+<style>
+:root{--bg:#f6f4ef;--surface:#fff;--ink:#14213d;--muted:#525b6e;--line:#d6d0c0;--accent:#9a6700;--accent-ink:#fff;--hero:#14213d;--hero-ink:#fff;--chip:#ece7da;--focus:#1a56db;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;--bg:#0d1424;--surface:#161f35;--ink:#f1efe8;--muted:#b3bacb;--line:#33405f;--accent:#f2b705;--accent-ink:#14213d;--hero:#0a0f1c;--hero-ink:#f1efe8;--chip:#1f2a45;--focus:#7fb0ff}}
+html{scroll-padding-top:env(safe-area-inset-top,0px);height:100%}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;font-size:16px;line-height:1.5}
+:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
+.skip{position:absolute;left:12px;top:-60px;z-index:20;background:var(--surface);color:var(--ink);padding:10px 14px;border-radius:8px;font-weight:700}
+.skip:focus{top:12px}
+.sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+header{background:var(--hero);color:var(--hero-ink);padding:28px 20px 34px}
+.wrap{max-width:1040px;margin:0 auto}
+.logo{font-family:"Bebas Neue",Impact,"Arial Narrow",sans-serif;font-size:44px;letter-spacing:2px;line-height:1}
+.tag{color:#b9c0d2;font-size:13px;letter-spacing:.14em;text-transform:uppercase;margin-top:4px}
+h1,h2{font-family:"Bebas Neue",Impact,"Arial Narrow",sans-serif;font-weight:400;letter-spacing:1px}
+h1{font-size:clamp(34px,6vw,56px);margin:20px 0 6px;line-height:1.05}
+h2{font-size:28px;margin:26px 0 12px}
+.sub{max-width:560px;color:#d3d8e5;margin:0}
+.chips{display:flex;gap:8px;margin:22px 0 6px;flex-wrap:wrap}
+button{font:600 15px Inter,system-ui,sans-serif;cursor:pointer}
+.chip{border:1px solid var(--line);background:var(--chip);color:var(--ink);padding:10px 18px;border-radius:999px;min-height:44px}
+.chip[aria-pressed="true"],.pri{background:var(--accent);color:var(--accent-ink);border:1px solid var(--accent)}
+.sec{background:var(--chip);color:var(--ink);border:1px solid var(--line)}
+.btn{border-radius:10px;padding:10px 14px;min-height:44px}
+main{padding:0 20px 40px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px;list-style:none;margin:0;padding:0}
+.item{background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column}
+.band{height:70px;display:flex;align-items:flex-end;padding:10px 14px;color:#fff;font:700 12px Inter,sans-serif;letter-spacing:.1em;text-transform:uppercase}
+.band.single{background:linear-gradient(135deg,#1d3a6e,#0f1f40)}.band.pack{background:linear-gradient(135deg,#6e4700,#8f6000)}
+.body{padding:14px;display:flex;flex-direction:column;gap:6px;flex:1}
+.name{font-weight:700;font-size:17px;line-height:1.25;margin:0}.meta{color:var(--muted);font-size:14px;margin:0}.note{font-size:14px;margin:0}
+.foot{display:flex;justify-content:space-between;align-items:center;margin-top:auto;padding-top:10px;gap:8px}
+.price{font-weight:700;font-size:20px}.price small{font-weight:600;color:var(--muted);font-size:13px}
+.add[aria-pressed="true"]{background:var(--chip);color:var(--ink);border-color:var(--line)}
+.soldout{font-weight:700;color:var(--muted);font-size:14px}
+.info{margin-top:10px;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px}
+.card h3{margin:0 0 6px;font-size:16px}.card p{margin:0 0 6px;color:var(--muted);font-size:15px}
+.share{display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+.share img{width:150px;height:150px;image-rendering:pixelated;border-radius:8px;border:1px solid var(--line);background:#fff}
+a{color:var(--accent)}.share a{word-break:break-all}
+.share .row{margin-top:8px}
+footer{padding:20px 20px calc(110px + env(safe-area-inset-bottom,0px));color:var(--muted);font-size:14px}
+footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+footer a{color:var(--muted)}
+.bar{position:fixed;left:0;right:0;bottom:0;background:var(--hero);color:var(--hero-ink);padding:12px 20px calc(12px + env(safe-area-inset-bottom,0px));display:flex;justify-content:space-between;align-items:center;gap:12px;z-index:5}
+.admin{position:sticky;top:0;z-index:6;background:var(--hero);color:var(--hero-ink);border-bottom:3px solid var(--accent);padding:10px 20px}
+.admin .wrap{display:flex;gap:10px;align-items:center;flex-wrap:wrap;font-size:15px}
+.admin .msg{flex:1;min-width:200px;margin:0}
+.admin form{display:flex;gap:8px;flex-wrap:wrap;align-items:flex-end;width:100%}
+.admin form>div{flex:1;min-width:180px}
+.admin label{color:#d3d8e5}
+.admin input{background:#fff;color:#14213d;border-color:#fff}
+.admin .err{color:#ffd27a;font-weight:600}
+.panel{position:fixed;inset:0;background:rgba(0,0,0,.6);display:none;z-index:10;align-items:flex-end;justify-content:center}
+.panel.open{display:flex}
+.sheet{background:var(--surface);color:var(--ink);width:100%;max-width:560px;max-height:92%;overflow:auto;border-radius:16px 16px 0 0;padding:20px 20px calc(20px + env(safe-area-inset-bottom,0px))}
+.sheet h2{margin-top:0}
+.lines{list-style:none;margin:0;padding:0}
+.line{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:6px 0;border-bottom:1px solid var(--line);font-size:15px}
+.line button{background:none;border:0;color:var(--ink);text-decoration:underline;font-size:14px;min-height:44px;padding:0 6px}
+textarea,input,select{width:100%;border:1px solid var(--line);background:var(--bg);color:var(--ink);border-radius:8px;padding:10px;font:16px Inter,system-ui,sans-serif;margin-top:4px}
+textarea{height:140px}.ed textarea{height:70px}
+label{font-size:14px;color:var(--muted);display:block;margin-top:8px;font-weight:600}
+.row{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap}.row button{flex:1;min-width:120px}
+.hint{color:var(--muted);font-size:14px;margin:8px 0 0}.empty{color:var(--muted);padding:16px 0}
+.ed label.chk{display:flex;gap:8px;align-items:center;color:var(--ink)}.ed label.chk input{width:22px;height:22px;margin:0}
+@media (forced-colors:active){.chip[aria-pressed="true"],.add[aria-pressed="true"]{outline:2px solid CanvasText}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to cards</a>
+<div id="root"></div>
+<div id="announce" class="sr" role="status" aria-live="polite"></div>
+<script type="application/json" id="data">{"store":{"name":"316 SC","tag":"Sports Cards","hero":"Real cards. Fair prices.","sub":"Singles for collectors and same-set packs of 20+ cards for anyone who loves opening something new.","email":"","fb":"","pay":"","ship":"Cards ship in sleeves and toploaders. Cost depends on the order and is confirmed before you pay.","url":"https://316sc.netlify.app/"},"qr":"","items":[{"id":"s1","t":"single","name":"Andy Benes #41, Error (no period after INC)","meta":"1990 Donruss · Baseball","note":"Raw. Real print error variation; offers welcome.","price":20},{"id":"s2","t":"single","name":"Ken Griffey Jr. #4, Soaring Stars","meta":"1996 Fleer Update · Baseball","note":"Raw. Insert card of a Hall of Famer.","price":14},{"id":"s3","t":"single","name":"Bobby Witt Jr. #BCP-160","meta":"2020 Bowman Chrome Prospects · Baseball","note":"Raw. Chrome rookie card.","price":6},{"id":"s4","t":"single","name":"Tom Brady #88","meta":"2022 Panini Origins · Football","note":"Raw.","price":6},{"id":"s5","t":"single","name":"Ken Griffey Jr. #220","meta":"1989 Bowman · Baseball","note":"Raw. Classic Griffey.","price":6},{"id":"s6","t":"single","name":"Manny Machado #MM, Clubhouse Collection Relic","meta":"2018 Topps Heritage · PSA 10","note":"Graded PSA 10 relic card. Message for price.","price":null},{"id":"s7","t":"single","name":"Jose Abreu #JA, Clubhouse Collection Relic","meta":"2018 Topps Heritage · PSA 10","note":"Graded PSA 10 relic card. Message for price.","price":null},{"id":"p1","t":"pack","name":"2019 Topps Chrome Pack","meta":"25 cards · Baseball","note":"Chrome cards like Aaron Judge, Nomar Mazara, J.P. Crawford.","price":25},{"id":"p2","t":"pack","name":"2020 Bowman Chrome Prospects Pack","meta":"23 cards · Baseball","note":"Prospects like Kyren Paris, Dane Dunning, Brice Turang.","price":23},{"id":"p3","t":"pack","name":"2020 Topps Update Pack","meta":"28 cards · Baseball","note":"Includes cards like Gavin Lux and Francisco Cervelli.","price":28},{"id":"p4","t":"pack","name":"1998 Pacific Paramount Pack","meta":"23 cards · Baseball","note":"Throwbacks like Paul O’Neill, Eric Karros, Gary Gaetti.","price":23},{"id":"p5","t":"pack","name":"1988 Topps Pack","meta":"24 cards · Baseball","note":"Classic 80s cardboard, Dave Concepcion and more.","price":24},{"id":"p6","t":"pack","name":"1990 Donruss Pack","meta":"22 cards · Baseball","note":"Includes Julio Franco, Ruben Sierra, Storm Davis.","price":22},{"id":"p7","t":"pack","name":"2020 Contenders Draft Picks Pack","meta":"25 cards · Football","note":"College draft cards like Carson Wentz and Mason Rudolph.","price":25},{"id":"p8","t":"pack","name":"2006 Upper Deck Pack","meta":"24 cards · Football","note":"Includes Tom Brady, Willis McGahee, Joey Galloway.","price":24}]}</script>
+<script type="module">
+import { login, logout, getUser, handleAuthCallback, acceptInvite, requestPasswordRecovery, updateUser, onAuthChange, AuthError } from "https://esm.sh/@netlify/identity@2.0.0";
+
+var S=JSON.parse(document.getElementById("data").textContent),D=null,editing=false,cart={},filter="all",focusK=null,uid=0;
+// Owner state: "auth" is null (signed out), or a step in the sign-in/invite/reset flow; "owner" is confirmed by the server.
+var auth={step:"login",msg:"",token:null},cred={email:"",pw:""},user=null,owner=false,saving=false;
+var R=document.getElementById("root"),A=document.getElementById("announce");
+function el(t,c,x){var e=document.createElement(t);if(c)e.className=c;if(x!=null)e.textContent=x;return e;}
+function money(n){return "$"+n.toFixed(2).replace(/\.00$/,"");}
+function cur(){return editing?D:S;}
+function safeUrl(u){return /^https:\/\//i.test(u||"")?u:"";}
+function say(t){A.textContent="";setTimeout(function(){A.textContent=t;},50);}
+function inField(label,val,cb,opts){opts=opts||{};var w=el("div"),id="f"+(++uid),l=el("label",null,label);l.htmlFor=id;w.appendChild(l);var i=el(opts.area?"textarea":"input");i.id=id;if(opts.type)i.type=opts.type;if(opts.auto)i.autocomplete=opts.auto;if(opts.req)i.required=true;i.value=val==null?"":val;if(opts.ph)i.placeholder=opts.ph;if(opts.mode)i.inputMode=opts.mode;i.addEventListener("input",function(){cb(i.value);});w.appendChild(i);return w;}
+function btn(txt,cls,fn,k){var b=el("button","btn "+cls,txt);b.type="button";if(k)b.dataset.k=k;b.addEventListener("click",fn);return b;}
+function chosen(){return S.items.filter(function(i){return cart[i.id]&&!i.out;});}
+function total(){return chosen().reduce(function(s,i){return s+(i.price||0);},0);}
+function ownerView(){return location.hash==="#edit"||!!user;}
+
+function adminBar(){
+  var a=el("section","admin"),w=el("div","wrap");a.setAttribute("aria-label","Owner tools");a.appendChild(w);
+  if(user&&owner){
+    if(!editing){w.appendChild(el("p","msg","Signed in as the owner. Changes you save go live for everyone right away."));w.appendChild(btn("Edit store","pri",function(){D=JSON.parse(JSON.stringify(S));editing=true;focusK="f-name";render();},"edit"));}
+    else{w.appendChild(el("p","msg",saving?"Saving…":"Editing. Press Save to publish your changes."));var sv=btn("Save changes","pri",save,"save");sv.disabled=saving;w.appendChild(sv);w.appendChild(btn("Cancel","sec",function(){editing=false;D=null;focusK="edit";render();}));}
+    w.appendChild(btn("Sign out","sec",signOut));
+  }else if(user){
+    w.appendChild(el("p","msg","Signed in as "+(user.email||"a user")+", but this account isn't the store owner, so it can't make changes."));w.appendChild(btn("Sign out","sec",signOut));
+  }else{
+    var f=el("form"),v=cred,st=auth.step,h=el("p","msg");f.setAttribute("aria-label","Owner sign in");
+    h.textContent=st==="invite"?"Welcome! Choose a password to finish setting up your owner account.":st==="recovery"?"Choose a new password.":st==="forgot"?"Enter your email and we'll send a reset link.":"Owner sign in. Only the store owner can edit this site.";
+    w.appendChild(h);
+    if(st==="login"||st==="forgot")f.appendChild(inField("Email",v.email,function(x){v.email=x;},{type:"email",auto:"email",req:true}));
+    if(st!=="forgot")f.appendChild(inField(st==="login"?"Password":"New password",v.pw,function(x){v.pw=x;},{type:"password",auto:st==="login"?"current-password":"new-password",req:true}));
+    var go=el("button","btn pri",st==="login"?"Sign in":st==="forgot"?"Send reset link":"Save password");go.type="submit";f.appendChild(go);
+    if(st==="login")f.appendChild(btn("Forgot password?","sec",function(){auth={step:"forgot",msg:""};render();}));
+    if(st==="forgot")f.appendChild(btn("Back","sec",function(){auth={step:"login",msg:""};render();}));
+    f.addEventListener("submit",function(e){e.preventDefault();authSubmit(st,v);});
+    w.appendChild(f);
+  }
+  if(auth.msg){var m=el("p","msg err",auth.msg);m.setAttribute("role","alert");w.appendChild(m);}
+  return a;
+}
+
+function render(){
+  var st=cur().store,items=cur().items;R.textContent="";uid=0;
+  if(ownerView())R.appendChild(adminBar());
+  var h=el("header"),w=el("div","wrap");w.appendChild(el("div","logo",st.name));w.appendChild(el("div","tag",st.tag));w.appendChild(el("h1",null,st.hero));w.appendChild(el("p","sub",st.sub));h.appendChild(w);R.appendChild(h);
+  var m=el("main","wrap");m.id="main";m.tabIndex=-1;
+  if(editing){var c=el("div","card ed");c.appendChild(el("h2",null,"Store settings"));
+    [["Store name","name"],["Tagline","tag"],["Headline","hero"],["Intro text","sub"],["Contact email (shows an Email order button)","email"],["Facebook or other link (https://...)","fb"],["Payment instructions (for example: Venmo @name)","pay"],["Shipping note","ship"],["Store web address to share (https://...)","url"]].forEach(function(f){var x=inField(f[0],D.store[f[1]],function(v){D.store[f[1]]=v;},{area:f[1]==="sub"||f[1]==="ship"});x.querySelector("input,textarea").dataset.k="f-"+f[1];c.appendChild(x);});
+    m.appendChild(c);}
+  var ch=el("div","chips");ch.setAttribute("role","group");ch.setAttribute("aria-label","Show");
+  [["all","All"],["single","Singles"],["pack","Packs"]].forEach(function(f){var b=btn(f[1],"chip",function(){filter=f[0];focusK="flt-"+f[0];render();say("Showing "+f[1].toLowerCase());},"flt-"+f[0]);b.className="chip";b.setAttribute("aria-pressed",String(filter===f[0]));ch.appendChild(b);});m.appendChild(ch);
+  [["single","Singles"],["pack","Packs (20+ cards, same set)"]].forEach(function(s){
+    if(filter!=="all"&&filter!==s[0])return;
+    m.appendChild(el("h2",null,s[1]));var g=el("ul","grid");g.setAttribute("aria-label",s[1]);
+    items.forEach(function(i,idx){if(i.t!==s[0])return;var li=el("li","item"+(editing?" ed":""));(editing?editCard:shopCard)(li,i,idx);g.appendChild(li);});m.appendChild(g);
+    if(editing){var r=el("div","row");r.appendChild(btn("+ Add "+(s[0]==="pack"?"pack":"single"),"sec",function(){var id="i"+Date.now();D.items.push({id:id,t:s[0],name:"New item",meta:"",note:"",price:0,out:false});focusK="n-"+id;render();say("New item added. Fill in its details.");}));m.appendChild(r);}});
+  m.appendChild(el("h2",null,"Ordering info"));
+  var inf=el("div","info");
+  var c1=el("section","card");c1.appendChild(el("h3",null,"How ordering works"));c1.appendChild(el("p",null,"Add cards to your order, then send it to "+st.name+". We confirm availability, shipping, and payment with you directly."));if(st.pay)c1.appendChild(el("p",null,"Payment: "+st.pay));inf.appendChild(c1);
+  var c2=el("section","card");c2.appendChild(el("h3",null,"Condition and shipping"));c2.appendChild(el("p",null,"Cards are raw (not graded) unless noted. Extra photos are available on request."));c2.appendChild(el("p",null,st.ship));inf.appendChild(c2);
+  var url=safeUrl(st.url)||location.origin+"/";
+  var c3=el("section","card");c3.appendChild(el("h3",null,"Share this store"));var sh=el("div","share");
+  if(S.qr){var img=el("img");img.src=S.qr;img.alt="QR code that opens the "+st.name+" store";sh.appendChild(img);}
+  var sd=el("div");var u=el("a",null,url.replace(/^https?:\/\//,""));u.href=url;sd.appendChild(u);var sr=el("div","row");
+  sr.appendChild(btn(navigator.share?"Share":"Copy link","sec",function(){if(navigator.share)navigator.share({title:st.name,url:url}).catch(function(){});else copy(url,function(ok){say(ok?"Link copied.":"Couldn't copy. The link is shown above.");});}));
+  if(S.qr)sr.appendChild(btn("Save QR code","sec",saveQR));sd.appendChild(sr);sh.appendChild(sd);c3.appendChild(sh);inf.appendChild(c3);
+  if(safeUrl(st.fb)){var c4=el("section","card");c4.appendChild(el("h3",null,"Contact"));var l=el("a",null,"Message "+st.name+" (opens in a new tab)");l.href=safeUrl(st.fb);l.target="_blank";l.rel="noopener";c4.appendChild(l);inf.appendChild(c4);}
+  m.appendChild(inf);R.appendChild(m);
+  var ft=el("footer"),fw=el("div","wrap");fw.appendChild(el("span",null,"© "+new Date().getFullYear()+" "+st.name));
+  if(!ownerView()){var ol=el("a",null,"Owner sign in");ol.href="#edit";fw.appendChild(ol);}
+  ft.appendChild(fw);R.appendChild(ft);
+  var bar=el("div","bar");bar.setAttribute("role","region");bar.setAttribute("aria-label","Your order");bar.appendChild(el("span",null,summary()));bar.appendChild(btn("Review order","pri",openPanel,"review"));R.appendChild(bar);
+  var p=el("div","panel");p.id="panel";R.appendChild(p);
+  if(focusK){var t=R.querySelector('[data-k="'+focusK+'"]');if(t)t.focus();focusK=null;}
+}
+function summary(){var n=chosen().length;return n?(n+(n===1?" item · ":" items · ")+money(total())):"Your order is empty";}
+function shopCard(c,i){
+  var b=el("div","band "+i.t,i.t==="pack"?"Pack":"Single");b.setAttribute("aria-hidden","true");c.appendChild(b);
+  var body=el("div","body");body.appendChild(el("h3","name",i.name));body.appendChild(el("p","meta",i.meta));body.appendChild(el("p","note",i.note));
+  var f=el("div","foot"),p=el("div","price");if(i.price==null)p.appendChild(el("small",null,"Make an offer"));else p.textContent=money(i.price);f.appendChild(p);
+  if(i.out)f.appendChild(el("span","soldout","Sold out"));
+  else{var on=!!cart[i.id],a=btn(on?"Added ✓":"Add","pri add",function(){if(cart[i.id])delete cart[i.id];else cart[i.id]=true;focusK="add-"+i.id;render();say((cart[i.id]?"Added ":"Removed ")+i.name+(cart[i.id]?" to":" from")+" your order. "+summary()+".");},"add-"+i.id);
+    a.setAttribute("aria-pressed",String(on));a.setAttribute("aria-label","Add "+i.name+" to order");f.appendChild(a);}
+  body.appendChild(f);c.appendChild(body);
+}
+function editCard(c,i,idx){
+  var body=el("div","body");
+  var n=inField("Name",i.name,function(v){i.name=v;});n.querySelector("input").dataset.k="n-"+i.id;body.appendChild(n);
+  body.appendChild(inField("Details (set, sport, condition)",i.meta,function(v){i.meta=v;}));
+  body.appendChild(inField("Description",i.note,function(v){i.note=v;},{area:true}));
+  body.appendChild(inField("Price in dollars (leave blank for 'make an offer')",i.price==null?"":i.price,function(v){var x=parseFloat(v);i.price=(v.trim()===""||isNaN(x)||x<0)?null:x;},{mode:"decimal"}));
+  var l=el("label","chk"),k=el("input");k.type="checkbox";k.checked=!!i.out;k.addEventListener("change",function(){i.out=k.checked;});l.appendChild(k);l.appendChild(document.createTextNode("Sold out"));body.appendChild(l);
+  var r=el("div","row"),d=btn("Delete","sec",function(){if(confirm("Delete "+i.name+"?")){D.items.splice(idx,1);focusK="save";render();say(i.name+" deleted. Save to publish.");}});d.setAttribute("aria-label","Delete "+i.name);r.appendChild(d);body.appendChild(r);c.appendChild(body);
+}
+function orderText(){
+  var l=chosen();if(!l.length)return "";var who=(document.getElementById("who")||{}).value||"";who=who.trim();
+  var t="Order request for "+S.store.name+(who?" from "+who:"")+":\n\n";
+  l.forEach(function(i){t+="- "+i.name+" ("+i.meta+") "+(i.price==null?"offer: ____":money(i.price))+"\n";});
+  return t+"\nItems: "+l.length+"\nSubtotal: "+money(total())+(l.some(function(i){return i.price==null;})?" plus offers":"")+"\n\nPlease confirm availability, shipping, and payment.";
+}
+function copy(text,done){if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(text).then(function(){done(true);},function(){done(false);});else done(false);}
+var lastFocus=null;
+function closePanel(){var p=document.getElementById("panel");p.classList.remove("open");p.textContent="";document.removeEventListener("keydown",panelKeys);var t=R.querySelector('[data-k="review"]');(t||lastFocus||document.body).focus();}
+function panelKeys(e){
+  var p=document.getElementById("panel");if(!p.classList.contains("open"))return;
+  if(e.key==="Escape"){e.preventDefault();closePanel();return;}
+  if(e.key!=="Tab")return;var f=p.querySelectorAll("button,input,textarea,a[href]");if(!f.length)return;var a=f[0],z=f[f.length-1];
+  if(e.shiftKey&&document.activeElement===a){e.preventDefault();z.focus();}else if(!e.shiftKey&&document.activeElement===z){e.preventDefault();a.focus();}
+}
+function openPanel(){
+  var p=document.getElementById("panel");if(!p.classList.contains("open"))lastFocus=document.activeElement;
+  p.textContent="";p.classList.add("open");document.removeEventListener("keydown",panelKeys);document.addEventListener("keydown",panelKeys);
+  p.onclick=function(e){if(e.target===p)closePanel();};
+  var s=el("div","sheet");s.setAttribute("role","dialog");s.setAttribute("aria-modal","true");s.setAttribute("aria-labelledby","ptitle");p.appendChild(s);
+  var hd=el("h2",null,"Your order");hd.id="ptitle";hd.tabIndex=-1;s.appendChild(hd);var l=chosen();
+  if(!l.length)s.appendChild(el("p","empty","Nothing here yet. Add some cards to start."));
+  var ul=el("ul","lines");l.forEach(function(i){var r=el("li","line");r.appendChild(el("span",null,i.name+" · "+(i.price==null?"offer":money(i.price))));var rb=btn("Remove","",function(){delete cart[i.id];render();openPanel();say("Removed "+i.name+". "+summary()+".");});rb.setAttribute("aria-label","Remove "+i.name);r.appendChild(rb);ul.appendChild(r);});if(l.length)s.appendChild(ul);
+  if(l.length)s.appendChild(el("p","hint","Subtotal: "+money(total())+" (shipping confirmed separately)"));
+  var wl=el("label",null,"Your name (optional)");wl.htmlFor="who";s.appendChild(wl);var who=el("input");who.id="who";who.autocomplete="name";s.appendChild(who);
+  var tl=el("label",null,"Order message");tl.htmlFor="msg";s.appendChild(tl);var ta=el("textarea");ta.id="msg";ta.readOnly=true;ta.value=orderText();s.appendChild(ta);who.addEventListener("input",function(){ta.value=orderText();});
+  var st=el("p","hint","Send the copied order to "+S.store.name+" to confirm payment and shipping.");st.setAttribute("role","status");
+  var r=el("div","row");
+  r.appendChild(btn("Copy order","pri",function(){if(!ta.value){st.textContent="Add a card first.";return;}ta.select();copy(ta.value,function(ok){if(!ok){try{ok=document.execCommand("copy");}catch(e){}}st.textContent=ok?"Copied. Now send it to "+S.store.name+".":"Select the text above and copy it.";});}));
+  if(S.store.email)r.appendChild(btn("Email order","sec",function(){if(ta.value)location.href="mailto:"+S.store.email+"?subject="+encodeURIComponent(S.store.name+" order request")+"&body="+encodeURIComponent(ta.value);}));
+  r.appendChild(btn("Keep shopping","sec",closePanel));s.appendChild(r);s.appendChild(st);
+  hd.focus();
+}
+function saveQR(){var a=document.createElement("a");a.href=S.qr;a.download="316-sc-qr.png";document.body.appendChild(a);a.click();a.remove();}
+
+async function api(method,body){
+  var r=await fetch("/api/store"+(method==="GET"&&user?"?me":""),{method:method,credentials:"same-origin",headers:body?{"Content-Type":"application/json"}:{},body:body?JSON.stringify(body):undefined});
+  var j=await r.json().catch(function(){return {};});if(!r.ok)throw new Error(j.error||"Something went wrong. Please try again.");return j;
+}
+async function load(){
+  try{var j=await api("GET");if(j.data)S=j.data;owner=!!j.owner;}catch(e){}
+  if(!editing)render();
+}
+async function save(){
+  if(!D.store.name.trim()){alert("Give the store a name.");return;}
+  saving=true;render();
+  try{var j=await api("PUT",D);S=j.data;editing=false;D=null;saving=false;focusK="edit";render();say("Saved. Your changes are live.");}
+  catch(e){saving=false;focusK="save";render();say(e.message);alert(e.message);}
+}
+function authError(e){
+  if(e instanceof AuthError){if(e.status===401)return "Wrong email or password.";if(e.status===422)return "Check your email and password (passwords need at least 8 characters).";return e.message;}
+  return "Sign in isn't available right now. Please try again later.";
+}
+async function authSubmit(st,v){
+  auth.msg="";
+  try{
+    if(st==="login"){user=await login(v.email.trim(),v.pw);}
+    else if(st==="forgot"){await requestPasswordRecovery(v.email.trim());auth={step:"login",msg:"If that email has an account, a reset link is on its way."};render();return;}
+    else if(st==="invite"){user=await acceptInvite(auth.token,v.pw);}
+    else if(st==="recovery"){await updateUser({password:v.pw});user=await getUser();}
+    auth={step:"login",msg:""};cred.pw="";await load();focusK="edit";render();say(owner?"Signed in. You can edit the store.":"Signed in.");
+  }catch(e){auth.msg=authError(e);render();}
+}
+async function signOut(){try{await logout();}catch(e){}user=null;owner=false;editing=false;D=null;if(location.hash==="#edit")history.replaceState(null,"",location.pathname);render();say("Signed out.");}
+
+window.addEventListener("hashchange",function(){render();if(location.hash==="#edit"&&!user){var f=R.querySelector(".admin input");if(f)f.focus();}});
+render();
+(async function(){
+  try{var cb=await handleAuthCallback();
+    if(cb&&cb.type==="invite"){auth={step:"invite",msg:"",token:cb.token};location.hash="#edit";}
+    else if(cb&&cb.type==="recovery"){auth={step:"recovery",msg:""};location.hash="#edit";}
+  }catch(e){auth.msg=authError(e);}
+  try{if(auth.step!=="invite")user=await getUser();}catch(e){}
+  // A recovery link signs the user in; keep them on the "choose a new password" step until they set it.
+  if(auth.step==="recovery")user=null;
+  await load();
+  onAuthChange(function(ev,u){if(ev==="logout"&&user){user=null;owner=false;editing=false;render();}});
+})();
+</script>
+</body>
+</html>
